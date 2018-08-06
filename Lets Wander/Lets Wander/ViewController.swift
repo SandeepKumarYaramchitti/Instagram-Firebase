@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     //Add a Sign up Button
     let signUpButton: UIButton = {
        let button = UIButton(type: .system)
-       button.backgroundColor = UIColor(red: 144/255, green: 204/255, blue: 244/255, alpha: 1)
+       button.backgroundColor = UIColor.rgb(red: 104, green: 204, blue: 244)
        button.translatesAutoresizingMaskIntoConstraints = false
        button.clipsToBounds = true
        button.layer.cornerRadius = 5
@@ -66,14 +66,13 @@ class ViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.addSubview(plusButton)
-        plusButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        plusButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        plusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        plusButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
-        //Set up the input Fields
+        plusButton.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 150, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
+         plusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         setUpInputFields()
+        
     }
     
     //Set the Input fields Method to add the new fields
@@ -85,13 +84,7 @@ class ViewController: UIViewController {
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: plusButton.bottomAnchor, constant: 30),
-            stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 42),
-            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -42),
-            stackView.heightAnchor.constraint(equalToConstant: 180)
-            ])
-        
+        stackView.anchor(top: plusButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 30, paddingLeft: 42, paddingBottom: 0, paddingRight: 42, width: 0, height: 180)
     }
 }
 
